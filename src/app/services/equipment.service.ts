@@ -8,7 +8,7 @@ import {ResponseModel} from "../core/request/response.model";
   providedIn: 'root'
 })
 export class EquipmentService {
-  private apiUrl = "http://localhost:8082/api/v1/equipment";
+  private apiUrl = "http://localhost:8081/api/v1/equipment";
   private savedEquipment: Equipment | null = null;
 
   constructor(private http: HttpClient) { }

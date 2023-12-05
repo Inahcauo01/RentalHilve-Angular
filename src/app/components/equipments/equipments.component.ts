@@ -13,7 +13,7 @@ import { RouterOutlet } from "@angular/router";
   templateUrl: './equipments.component.html',
   styleUrl: './equipments.component.css'
 })
-export class EquipmentComponent {
+export class EquipmentsComponent {
   equipments: Equipment[] = [];
   toSave: Equipment = new CEquipment();
 

@@ -1,31 +1,22 @@
 <app-navbar></app-navbar>
 
 <div class="container mt-3">
-  <h2>Hover Rows</h2>
-  <p>The .table-hover class enables a hover state (grey background on mouse over) on table rows:</p>
+  <h2>Liste des equipments</h2>
   <table class="table table-hover">
     <thead>
     <tr>
-      <th>Firstname</th>
-      <th>Lastname</th>
-      <th>Email</th>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Quantity</th>
+      <th>Family</th>
     </tr>
     </thead>
     <tbody>
-    <tr>
-      <td>John</td>
-      <td>Doe</td>
-      <td>johnexample.com</td>
-    </tr>
-    <tr>
-      <td>Mary</td>
-      <td>Moe</td>
-      <td>maryexample.com</td>
-    </tr>
-    <tr>
-      <td>July</td>
-      <td>Dooley</td>
-      <td>julyexample.com</td>
+    <tr *ngFor="let equipment of equipments">
+      <td>{{ equipment.id }}</td>
+      <td>{{ equipment.name }}</td>
+      <td>{{ equipment.quantity }}</td>
+      <td>{{ equipment.equipmentFamilyId }}</td>
     </tr>
     </tbody>
   </table>
