@@ -1,8 +1,15 @@
 <app-navbar></app-navbar>
 
 <div class="container mt-3">
-  <h2>Liste des equipments</h2>
+  <div class="d-flex justify-content-between">
+    <h2>Liste des equipments</h2>
+    <button type="btn btn-sm" class="btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      Ajouter equipment
+    </button>
+  </div>
+
   <table class="table table-hover">
+    <caption class="text-sm-center">Liste des equipments</caption>
     <thead>
     <tr>
       <th>ID</th>
@@ -20,4 +27,36 @@
     </tr>
     </tbody>
   </table>
+</div>
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <form class="modal-content" (submit)="onSubmit()">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Ajouter equipement</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div>
+          <div class="mb-3">
+            <label class="col-form-label">Nom:</label>
+            <input type="text" class="form-control" name="name" [(ngModel)] = "toSave.name">
+          </div>
+          <div class="mb-3">
+            <label class="col-form-label">Quantité:</label>
+            <input type="number" min="0" step="any" class="form-control" name="quantity" [(ngModel)] = "toSave.quantity">
+          </div>
+          <div class="mb-3">
+            <label class="col-form-label">FamilyId:</label>
+            <input type="number" min="0" step="any" class="form-control" name="family_id" [(ngModel)] = "toSave.equipmentFamilyId">
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+        <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Ajouter</button>
+      </div>
+    </form>
+  </div>
 </div>
