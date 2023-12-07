@@ -1,62 +1,51 @@
-<app-navbar></app-navbar>
-
-<div class="container mt-3">
-  <div class="d-flex justify-content-between">
-    <h2>Liste des equipments</h2>
-    <button type="btn btn-sm" class="btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#exampleModal">
-      Ajouter equipment
-    </button>
+<div class="flex flex-col m-0 p-12 w-full mx-0">
+  <div class="overflow-x-auto">
+    <div class="overflow-hidden border p-4 rounded-xl">
+      <table class="w-[88%] text-left text-sm font-light table-auto m-auto">
+        <thead class="border-b font-medium dark:border-neutral-500">
+        <tr>
+          <th scope="col" class="px-6 py-4">ID</th>
+          <th scope="col" class="px-6 py-4">Name</th>
+          <th scope="col" class="px-6 py-4">Quantity</th>
+          <th scope="col" class="px-6 py-4">Family</th>
+          <th scope="col" class="px-6 py-4">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let equipment of equipments" class="mt-10">
+          <td>
+            <div class="flex items-center">
+              <div class="relative inline-block shrink-0 rounded-2xl me-3">
+                <p>
+                  {{ equipment.id }}
+                </p>
+              </div>
+              <div class="relative inline-block shrink-0 rounded-2xl me-3">
+                <img
+                  src="https://images.unsplash.com/photo-1580901369227-308f6f40bdeb?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                  class="w-[50px] h-[50px] inline-block shrink-0 rounded-2xl" alt="">
+              </div>
+            </div>
+          </td>
+          <td>{{ equipment.name }}</td>
+          <td>{{ equipment.quantity }}</td>
+          <td>{{ equipment.equipmentFamilyId }}</td>
+          <td>
+            <a class="border m-1.5 p-2 rounded-lg" [routerLink]="['/equipments', equipment.id]">Voir</a>
+            <a class="border m-1.5 p-2 rounded-lg bg-sky-900 text-white" [routerLink]="['/equipment', equipment.id, 'edit']">Modifier</a>
+            <button class="border m-1.5 p-2 rounded-lg bg-red-500 text-white" (click)="deleteEquipment(equipment.id)">Supprimer</button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
-
-  <table class="table table-hover">
-    <caption class="text-sm-center">Liste des equipments</caption>
-    <thead>
-    <tr>
-      <th>ID</th>
-      <th>Name</th>
-      <th>Quantity</th>
-      <th>Family</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let equipment of equipments">
-      <td>{{ equipment.id }}</td>
-      <td>{{ equipment.name }}</td>
-      <td>{{ equipment.quantity }}</td>
-      <td>{{ equipment.equipmentFamilyId }}</td>
-    </tr>
-    </tbody>
-  </table>
 </div>
 
-
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <form class="modal-content" (submit)="onSubmit()">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Ajouter equipement</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <div>
-          <div class="mb-3">
-            <label class="col-form-label">Nom:</label>
-            <input type="text" class="form-control" name="name" [(ngModel)] = "toSave.name">
-          </div>
-          <div class="mb-3">
-            <label class="col-form-label">Quantité:</label>
-            <input type="number" min="0" step="any" class="form-control" name="quantity" [(ngModel)] = "toSave.quantity">
-          </div>
-          <div class="mb-3">
-            <label class="col-form-label">FamilyId:</label>
-            <input type="number" min="0" step="any" class="form-control" name="family_id" [(ngModel)] = "toSave.equipmentFamilyId">
-          </div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
-        <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Ajouter</button>
-      </div>
-    </form>
+<div class="flex flex-wrap m-mx-3 mb-5 w-[96%]">
+  <div class="w-full mx-auto text-center">
+    <p class="text-sm text-slate-500 py-1">
+      Made with <span class="text-red-500">♥</span> by Tarek Inahcauo
+    </p>
   </div>
 </div>

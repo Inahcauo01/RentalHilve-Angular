@@ -3,9 +3,19 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Front-Rental-Hive": {
+    "Angular-Rental-Hive": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:component": {
+          "standalone": false
+        },
+        "@schematics/angular:directive": {
+          "standalone": false
+        },
+        "@schematics/angular:pipe": {
+          "standalone": false
+        }
+      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -13,7 +23,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/front-rental-hive",
+            "outputPath": "dist/angular-rental-hive",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -25,12 +35,9 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css",
-              "node_modules/bootstrap/dist/css/bootstrap.min.css"
+              "src/styles.css"
             ],
-            "scripts": [
-              "node_modules/bootstrap/dist/js/bootstrap.min.js"
-            ]
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -60,10 +67,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "Front-Rental-Hive:build:production"
+              "buildTarget": "Angular-Rental-Hive:build:production"
             },
             "development": {
-              "buildTarget": "Front-Rental-Hive:build:development"
+              "buildTarget": "Angular-Rental-Hive:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -71,7 +78,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "Front-Rental-Hive:build"
+            "buildTarget": "Angular-Rental-Hive:build"
           }
         },
         "test": {
