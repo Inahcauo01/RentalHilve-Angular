@@ -1,6 +1,21 @@
-<div class="p-6 m-6 bg-red-500">
-    <h2>{{ equipment?.name }}</h2>
-    <p>{{ equipment?.id }}</p>
-    <p>{{ equipment?.quantity }}</p>
-    <p>{{ equipment?.equipmentFamilyId }}</p>
+<div class="container mx-auto mt-8">
+    <div class="max-w-2xl mx-auto bg-white rounded-lg overflow-hidden shadow-md">
+        <!-- Image de l'équipement -->
+        <div class="relative h-64 overflow-hidden">
+            <img class="w-full h-full object-cover"
+                 src="https://images.unsplash.com/photo-1580901369227-308f6f40bdeb?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                 alt="{{ equipment?.name }}">
+        </div>
+        <!-- Détails de l'équipement -->
+        <div class="p-6">
+            <h2 class="text-3xl font-semibold text-gray-800 mb-4">{{ equipment?.name }}</h2>
+            <p class="text-gray-600"><span class="font-semibold">ID:</span> {{ equipment?.id }}</p>
+            <p class="text-gray-600"><span class="font-semibold">Quantité:</span> {{ equipment?.quantity }}</p>
+            <p class="text-gray-600"><span class="font-semibold">Famille d'équipement:</span> {{ equipment?.equipmentFamilyId }}</p>
+            <!-- Ajoutez plus d'informations ici selon vos besoins -->
+
+            <!-- Bouton ou lien de retour à la liste des équipements -->
+            <a routerLink="/equipments" class="mt-8 block text-center bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition duration-300">Retour à la liste des équipements</a>
+        </div>
+    </div>
 </div>
